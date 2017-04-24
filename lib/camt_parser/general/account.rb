@@ -8,6 +8,10 @@ module CamtParser
       @iban ||= @xml_data.xpath('Id/IBAN/text()').text
     end
 
+    def bban
+      @bban ||= @xml_data.xpath('Id/Othr/Id/text()').text
+    end
+
     def bic
       @bic ||= @xml_data.xpath('Svcr/FinInstnId/BIC/text()').text
     end

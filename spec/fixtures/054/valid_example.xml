@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02 camt.053.001.02.xsd">
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.054.001.02 camt.054.001.02.xsd">
 
-<BkToCstmrStmt>
+<BkToCstmrDbtCdtNtfctn>
   <GrpHdr>
     <MsgId>053D2013-12-27T22:05:03.0N130000005</MsgId>
     <CreDtTm>2013-12-27T22:04:52.0+01:00</CreDtTm>
@@ -10,9 +10,8 @@
       <LastPgInd>true</LastPgInd>
     </MsgPgntn>
   </GrpHdr>
-  <Stmt>
+  <Ntfctn>
     <Id>0352C5320131227220503</Id>
-    <ElctrncSeqNb>130000005</ElctrncSeqNb>
     <CreDtTm>2013-12-27T22:04:52.0+01:00</CreDtTm>
     <Acct>
       <Id>
@@ -33,30 +32,6 @@
         </FinInstnId>
       </Svcr>
     </Acct>
-    <Bal>
-      <Tp>
-        <CdOrPrtry>
-          <Cd>OPBD</Cd>
-        </CdOrPrtry>
-      </Tp>
-      <Amt Ccy="EUR">33.06</Amt>
-      <CdtDbtInd>CRDT</CdtDbtInd>
-      <Dt>
-        <Dt>2013-12-27</Dt>
-      </Dt>
-    </Bal>
-    <Bal>
-      <Tp>
-        <CdOrPrtry>
-          <Cd>CLBD</Cd>
-        </CdOrPrtry>
-      </Tp>
-      <Amt Ccy="EUR">23.06</Amt>
-      <CdtDbtInd>CRDT</CdtDbtInd>
-      <Dt>
-        <Dt>2013-12-27</Dt>
-      </Dt>
-    </Bal>
     <Ntry>
       <Amt Ccy="EUR">2.00</Amt>
       <CdtDbtInd>DBIT</CdtDbtInd>
@@ -362,6 +337,6 @@
         </TxDtls>
       </NtryDtls>
     </Ntry>
-  </Stmt>
-</BkToCstmrStmt>
+  </Ntfctn>
+</BkToCstmrDbtCdtNtfctn>
 </Document>

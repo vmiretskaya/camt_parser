@@ -10,7 +10,7 @@ GEM
     builder (3.2.2)
     diff-lcs (1.2.5)
     mini_portile2 (2.1.0)
-    nokogiri (1.7.0.1)
+    nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     rake (10.4.2)
     rspec (3.3.0)
@@ -32,6 +32,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   builder (~> 3.2.2)
@@ -39,3 +40,6 @@ DEPENDENCIES
   rake (~> 10.4.2)
   rspec (~> 3.3.0)
   rspec_junit_formatter (~> 0.2.2)
+
+BUNDLED WITH
+   1.12.5
