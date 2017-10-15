@@ -56,13 +56,7 @@ module CamtParser
     end
 
     def remittance_information
-      @remittance_information ||= begin
-        if (x = @xml_data.xpath('RmtInf/Ustrd')).empty?
-          nil
-        else
-          x.collect(&:content).join(' ')
-        end
-      end
+      @remittance_information ||= collect_children('RmtInf/Ustrd')
     end
 
     def swift_code
@@ -93,8 +87,26 @@ module CamtParser
       @creditor_identifier ||= @xml_data.xpath('RltdPties/Cdtr/Id/PrvtId/Othr/Id/text()').text
     end
 
+    def related_parties_debt_info
+      @related_parties_debt_info ||= collect_children('RltdPties/Dbtr')
+    end
+
+    def related_parties_cdtr_info
+      @related_parties_cdtr_info ||= collect_children('RltdPties/Cdtr')
+    end
+
     def payment_information # May be missing
       @payment_information ||= @xml_data.xpath('Refs/PmtInfId/text()').text
+    end
+
+
+    private
+    def collect_children(xpath)
+      if (x = @xml_data.xpath(xpath)).empty?
+        nil
+      else
+        x.collect(&:content).join(' ')
+      end
     end
   end
 end
