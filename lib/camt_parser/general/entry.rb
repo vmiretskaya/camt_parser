@@ -33,6 +33,10 @@ module CamtParser
       @bank_reference ||= @xml_data.xpath('AcctSvcrRef/text()').text
     end
 
+    def transaction_type
+      @transaction_type ||= @xml_data.xpath('BkTxCd/Prtry/Cd/text()').text
+    end
+
     def transactions
       @transactions ||= parse_transactions
     end

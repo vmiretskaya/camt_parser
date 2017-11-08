@@ -56,7 +56,7 @@ module CamtParser
     end
 
     def remittance_information
-      @remittance_information ||= collect_children('RmtInf/Ustrd')
+      @remittance_information ||= collect_children('RmtInf')
     end
 
     def swift_code
