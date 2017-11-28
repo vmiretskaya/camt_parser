@@ -87,12 +87,44 @@ module CamtParser
       @creditor_identifier ||= @xml_data.xpath('RltdPties/Cdtr/Id/PrvtId/Othr/Id/text()').text
     end
 
+    def creditor_name # May be missing
+      @creditor_name ||= @xml_data.xpath('RltdPties/Cdtr/Nm/text()').text
+    end
+
+    def creditor_account # May be missing
+      @creditor_account ||= @xml_data.xpath('RltdPties/CdtrAcct/Id/Othr/Id/text()').text || @xml_data.xpath('RltdPties/CdtrAcct/Id/IBAN/text()').text
+    end
+
+    def debitor_name # May be missing
+      @debitor_name ||= @xml_data.xpath('RltdPties/Dbtr/Nm/text()').text
+    end
+
+    def debitor_address # May be missing
+      @debitor_address ||= collect_children('RltdPties/Dbtr/PstlAdr')
+    end
+
+    def related_parties
+      @related_parties ||= collect_children('RltdPties')
+    end
+
     def related_parties_debt_info
       @related_parties_debt_info ||= collect_children('RltdPties/Dbtr')
     end
 
     def related_parties_cdtr_info
       @related_parties_cdtr_info ||= collect_children('RltdPties/Cdtr')
+    end
+
+    def related_agent
+      @related_agent ||= collect_children('RltdAgts')
+    end
+
+    def related_debt_agent
+      @related_debt_agent ||= collect_children('RltdAgts/DbtrAgt')
+    end
+
+    def related_cdtr_agent
+      @related_cdtr_agent ||= collect_children('RltdAgts/CdtrAgt')
     end
 
     def payment_information # May be missing
